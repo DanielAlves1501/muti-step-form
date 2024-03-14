@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/images/favicon-32x32.png" />
+    <title>Multi Step Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="navbar-container">
+        <nav class="navbar">
+          <div class="navbar__item">
+            <span class="navbar__step-number navbar__step-number--active">
+              1</span
+            >
+            <div>
+              <span class="navbar__step">STEP 1</span>
+              <h2 class="navbar__subtitle">YOUR INFO</h2>
+            </div>
+          </div>
+          <div class="navbar__item">
+            <span class="navbar__step-number"> 2</span>
+            <div>
+              <span class="navbar__step">STEP 2</span>
+              <h2 class="navbar__subtitle">SELECT PLAN</h2>
+            </div>
+          </div>
+          <div class="navbar__item">
+            <span class="navbar__step-number"> 3</span>
+            <div>
+              <span class="navbar__step">STEP 3</span>
+              <h2 class="navbar__subtitle">ADD-ONS</h2>
+            </div>
+          </div>
+          <div class="navbar__item">
+            <span class="navbar__step-number"> 4</span>
+            <div>
+              <span class="navbar__step">STEP 4</span>
+              <h2 class="navbar__subtitle">SUMMARY</h2>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="form-container">
+        <form action="" autocomplete="off" class="form"></form>
+        <div class="form-btn-container">
+          <a href="/step2" class="form-container__next-btn">Next Step</a>
+        </div>
+      </main>
+    </div>
+    <script src="js/index.js" type="module"></script>
+    <script src="js/router.js" type="module"></script>
+  </body>
+</html>
