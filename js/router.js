@@ -1,6 +1,7 @@
 const nextBtn = document.querySelector(".form-container__next-btn");
 const form = document.querySelector(".form");
 const navbarStepNumbers = document.querySelectorAll(".navbar__step-number ");
+import { userInfo } from "./index.js";
 
 let stepCounter = 1;
 
@@ -60,13 +61,24 @@ const handleActiveStep = () => {
 
 nextBtn.addEventListener("click", (e) => {
   e.preventDefault();
-
   route();
   handleActiveStep();
+
+  
 });
 
 window.onpopstate = function () {
   handleLocation();
+  console.log(localStorage)
+  setTimeout(() => {
+    let inputs = document.querySelectorAll('input');
+
+    inputs.forEach(input=>{
+      input.value = localStorage.getItem(input.name)
+    })
+    
+  }, 100);
+
   handleStepCounter();
   handleActiveStep();
 };
