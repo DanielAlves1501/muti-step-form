@@ -48,6 +48,9 @@ label {
   right: 0;
   text-align: right;
   padding-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .form-container__next-btn {
@@ -64,5 +67,16 @@ label {
 
   &:hover {
     opacity: 0.9;
+  }
+}
+
+.form-container__go-back-btn {
+  margin-left: 80px;
+  color: var(--Cool-gray);
+  font-weight: 500;
+
+  &:hover {
+    color: #000;
+    transition: color 0.3s ease;
   }
 }

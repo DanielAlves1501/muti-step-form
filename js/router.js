@@ -1,6 +1,9 @@
 const nextBtn = document.querySelector(".form-container__next-btn");
+const goBackBtn = document.querySelector(".form-container__go-back-btn");
 const form = document.querySelector(".form");
 const navbarStepNumbers = document.querySelectorAll(".navbar__step-number ");
+
+import { step2Animations } from "./animations.js";
 import { userInfo } from "./index.js";
 
 let stepCounter = 1;
@@ -63,22 +66,42 @@ nextBtn.addEventListener("click", (e) => {
   e.preventDefault();
   route();
   handleActiveStep();
+  step2Animations();
+});
 
-  
+goBackBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let pathname = window.location.pathname;
+
+  if (pathname == "/step4") {
+    window.history.pushState({}, "", "/step3");
+    stepCounter = 3;
+  } else if (pathname == "/step3") {
+    window.history.pushState({}, "", "/step2");
+    stepCounter = 2;
+  } else if (pathname == "/step2") {
+    window.history.pushState({}, "", "/");
+    stepCounter = 1;
+  }
+
+  handleActiveStep();
+  handleLocation();
+  step2Animations();
 });
 
 window.onpopstate = function () {
   handleLocation();
-  console.log(localStorage)
+  console.log(localStorage);
   setTimeout(() => {
-    let inputs = document.querySelectorAll('input');
+    let inputs = document.querySelectorAll("input");
 
-    inputs.forEach(input=>{
-      input.value = localStorage.getItem(input.name)
-    })
-    
+    inputs.forEach((input) => {
+      input.value = localStorage.getItem(input.name);
+    });
   }, 100);
 
+  step2Animations();
   handleStepCounter();
   handleActiveStep();
 };

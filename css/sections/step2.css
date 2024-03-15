@@ -1,0 +1,83 @@
+.cards-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  border: 2px solid var(--Light-gray);
+  padding: 20px;
+  border-radius: 7px;
+  width: 31%;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.card__info {
+  margin-top: 30px;
+}
+
+.card__plan {
+  color: var(--Marine-blue);
+  line-height: 30px;
+}
+
+.card__price {
+  color: var(--Cool-gray);
+}
+
+.card--active {
+  border-color: hsl(243, 100%, 62%, 0.5);
+
+  background: hsl(228, 100%, 84%, 0.1);
+}
+
+/* Payment Plan */
+
+.payment {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--Magnolia);
+  margin-top: 35px;
+  border-radius: 7px;
+  padding: 15px;
+}
+
+.payment__plans {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.payment__mode {
+  color: var(--Cool-gray);
+  font-weight: 500;
+  transition: color 1s ease;
+}
+
+.payment__mode--active {
+  color: var(--Marine-blue);
+}
+
+.payment__btn-container {
+  background: var(--Marine-blue);
+  padding: 4px 15px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.payment__btn {
+  transition: transform 1s ease;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: none;
+  outline: none;
+  transform: translateX(-70%);
+  cursor: pointer;
+}
