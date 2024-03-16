@@ -94,6 +94,7 @@ goBackBtn.addEventListener("click", (e) => {
   handleActiveStep();
   handleLocation();
   handleLocaleStorage();
+  step2Animations();
   handleInputInitialValue();
 });
 

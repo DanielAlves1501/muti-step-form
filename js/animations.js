@@ -1,4 +1,8 @@
-export const step2Animations = () => {
+import { handlePlanSelected } from "./index.js";
+
+let planInfo = {};
+
+const step2Animations = () => {
   setTimeout(() => {
     const planBtn = document.querySelector(".payment__btn");
     const monthlyPlan = document.querySelector(".monthly");
@@ -31,13 +35,30 @@ export const step2Animations = () => {
     });
 
     cards.forEach((card) => {
+      const planStoredData = localStorage.getItem("planInformation");
+
+      if (planStoredData) {
+        planInfo = JSON.parse(planStoredData);
+
+        if (card.childNodes[3].firstElementChild.innerText == planInfo.plan) {
+          card.classList.add("card--active");
+        }
+      }
+
       card.addEventListener("click", () => {
         // Remover la clase card--active de todas las cards
         cards.forEach((c) => c.classList.remove("card--active"));
 
         // Agregar la clase card--active solo a la card clickeada
         card.classList.add("card--active");
+
+        planInfo = { plan: card.childNodes[3].firstElementChild.innerText };
+
+        localStorage.setItem("planInformation", JSON.stringify(planInfo));
+        console.log(localStorage);
       });
     });
   }, 100);
 };
+
+export { planInfo, step2Animations };

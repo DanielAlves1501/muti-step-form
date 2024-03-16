@@ -31,8 +31,15 @@ const handleLocaleStorage = () => {
   }, 100);
 };
 
+const handlePlanSelected = (card) => {};
+
 handleInputInitialValue();
 
 handleLocaleStorage();
 
-export { userInfo, handleInputInitialValue, handleLocaleStorage };
+export {
+  userInfo,
+  handleInputInitialValue,
+  handleLocaleStorage,
+  handlePlanSelected,
+};
