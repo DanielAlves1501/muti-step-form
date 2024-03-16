@@ -4,6 +4,7 @@ export const step2Animations = () => {
     const monthlyPlan = document.querySelector(".monthly");
     const yearlyPlan = document.querySelector(".yearly");
     const cards = document.querySelectorAll(".card");
+    const cardPrice = document.querySelectorAll(".card__price");
 
     planBtn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -16,6 +17,16 @@ export const step2Animations = () => {
         yearlyPlan.classList.remove("payment__mode--active");
         planBtn.style.transform = "translateX(-70%)";
         monthlyPlan.classList.add("payment__mode--active");
+      }
+
+      if (planBtn.style.transform == "translateX(-70%)") {
+        cardPrice[0].textContent = "$9/mo";
+        cardPrice[1].textContent = "$12/mo";
+        cardPrice[2].textContent = "$15/mo";
+      } else {
+        cardPrice[0].textContent = "$90/yr";
+        cardPrice[1].textContent = "$120/yr";
+        cardPrice[2].textContent = "$150/yr";
       }
     });
 

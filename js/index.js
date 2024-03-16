@@ -1,14 +1,38 @@
 let userInfo = {};
 
-window.addEventListener("load", () => {
-  const inputs = document.querySelectorAll("input");
+const handleInputInitialValue = () => {
+  setTimeout(() => {
+    const storedData = localStorage.getItem("userInfo");
+    const inputs = document.querySelectorAll("input");
 
-  inputs.forEach((input) => {
-    input.addEventListener("change", (e) => {
-      userInfo = { ...userInfo, [e.target.name]: e.target.value };
-      localStorage.setItem(e.target.name, input.value);
+    if (storedData) {
+      userInfo = JSON.parse(storedData);
+
+      inputs.forEach((input) => {
+        if (userInfo[input.name]) {
+          input.value = userInfo[input.name];
+        }
+      });
+    }
+  }, 100);
+};
+
+const handleLocaleStorage = () => {
+  setTimeout(() => {
+    const inputs = document.querySelectorAll("input");
+
+    inputs.forEach((input) => {
+      input.addEventListener("change", (e) => {
+        userInfo = { ...userInfo, [e.target.name]: e.target.value };
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        console.log(userInfo, "changing");
+      });
     });
-  });
-});
+  }, 100);
+};
 
-export { userInfo };
+handleInputInitialValue();
+
+handleLocaleStorage();
+
+export { userInfo, handleInputInitialValue, handleLocaleStorage };

@@ -4,7 +4,11 @@ const form = document.querySelector(".form");
 const navbarStepNumbers = document.querySelectorAll(".navbar__step-number ");
 
 import { step2Animations } from "./animations.js";
-import { userInfo } from "./index.js";
+import {
+  handleInputInitialValue,
+  handleLocaleStorage,
+  userInfo,
+} from "./index.js";
 
 let stepCounter = 1;
 
@@ -14,6 +18,8 @@ const routes = {
   "/step3": "/views/step3.html",
   "/step4": "/views/step4.html",
 };
+
+// checking if the page has been reloaded
 
 const route = (e) => {
   let pathname = window.location.pathname;
@@ -87,23 +93,17 @@ goBackBtn.addEventListener("click", (e) => {
 
   handleActiveStep();
   handleLocation();
-  step2Animations();
+  handleLocaleStorage();
+  handleInputInitialValue();
 });
 
 window.onpopstate = function () {
   handleLocation();
-  console.log(localStorage);
-  setTimeout(() => {
-    let inputs = document.querySelectorAll("input");
-
-    inputs.forEach((input) => {
-      input.value = localStorage.getItem(input.name);
-    });
-  }, 100);
-
   step2Animations();
   handleStepCounter();
   handleActiveStep();
+  handleInputInitialValue();
+  handleLocaleStorage();
 };
 
 window.route = route;
