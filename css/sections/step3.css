@@ -1,0 +1,51 @@
+.add-on {
+  border: 2px solid var(--Light-gray);
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  padding: 20px;
+}
+.add-on__left {
+  display: flex;
+  align-items: center;
+}
+
+.add-on__checkbox {
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  margin-right: 20px;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.add-on__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 22px;
+}
+
+.add-on__name {
+  color: var(--Marine-blue);
+  font-weight: 700;
+}
+
+.add-on__description {
+  color: var(--Cool-gray);
+  font-weight: 400;
+}
+
+.add-on__price {
+  color: var(--Purplish-blue);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.add-on--active {
+  border-color: hsl(243, 100%, 62%, 0.5);
+
+  background: hsl(228, 100%, 84%, 0.1);
+}

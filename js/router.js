@@ -3,7 +3,7 @@ const goBackBtn = document.querySelector(".form-container__go-back-btn");
 const form = document.querySelector(".form");
 const navbarStepNumbers = document.querySelectorAll(".navbar__step-number ");
 
-import { step2Animations } from "./animations.js";
+import { handleAllSteps } from "./animations.js";
 import {
   handleInputInitialValue,
   handleLocaleStorage,
@@ -72,7 +72,7 @@ nextBtn.addEventListener("click", (e) => {
   e.preventDefault();
   route();
   handleActiveStep();
-  step2Animations();
+  handleAllSteps();
 });
 
 goBackBtn.addEventListener("click", (e) => {
@@ -94,17 +94,17 @@ goBackBtn.addEventListener("click", (e) => {
   handleActiveStep();
   handleLocation();
   handleLocaleStorage();
-  step2Animations();
   handleInputInitialValue();
+  handleAllSteps();
 });
 
 window.onpopstate = function () {
   handleLocation();
-  step2Animations();
   handleStepCounter();
   handleActiveStep();
   handleInputInitialValue();
   handleLocaleStorage();
+  handleAllSteps();
 };
 
 window.route = route;
