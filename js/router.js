@@ -19,7 +19,7 @@ const routes = {
   "/step4": "/views/step4.html",
 };
 
-handleGoBackBtnVisibility(stepCounter,goBackBtn)
+handleGoBackBtnVisibility(stepCounter, goBackBtn);
 
 const route = (e) => {
   let pathname = window.location.pathname;
@@ -72,7 +72,7 @@ nextBtn.addEventListener("click", (e) => {
   e.preventDefault();
   route();
   handleActiveStep();
-  handleAllSteps(stepCounter,goBackBtn, nextBtn);
+  handleAllSteps(stepCounter, goBackBtn, nextBtn);
 });
 
 goBackBtn.addEventListener("click", (e) => {
@@ -95,8 +95,7 @@ goBackBtn.addEventListener("click", (e) => {
   handleLocation();
   handleLocaleStorage();
   handleInputInitialValue();
-  handleAllSteps(stepCounter,goBackBtn,nextBtn);
-
+  handleAllSteps(stepCounter, goBackBtn, nextBtn);
 });
 
 window.onpopstate = function () {
@@ -105,7 +104,7 @@ window.onpopstate = function () {
   handleActiveStep();
   handleInputInitialValue();
   handleLocaleStorage();
-  handleAllSteps(stepCounter,goBackBtn,nextBtn);
+  handleAllSteps(stepCounter, goBackBtn, nextBtn);
 };
 
 window.route = route;

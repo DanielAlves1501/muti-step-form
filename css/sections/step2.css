@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  flex-wrap: wrap;
 }
 
 .card__info {
