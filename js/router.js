@@ -3,7 +3,7 @@ const goBackBtn = document.querySelector(".form-container__go-back-btn");
 const form = document.querySelector(".form");
 const navbarStepNumbers = document.querySelectorAll(".navbar__step-number ");
 
-import { handleAllSteps } from "./animations.js";
+import { handleAllSteps, handleGoBackBtnVisibility } from "./animations.js";
 import {
   handleInputInitialValue,
   handleLocaleStorage,
@@ -19,7 +19,7 @@ const routes = {
   "/step4": "/views/step4.html",
 };
 
-// checking if the page has been reloaded
+handleGoBackBtnVisibility(stepCounter,goBackBtn)
 
 const route = (e) => {
   let pathname = window.location.pathname;
@@ -72,7 +72,7 @@ nextBtn.addEventListener("click", (e) => {
   e.preventDefault();
   route();
   handleActiveStep();
-  handleAllSteps();
+  handleAllSteps(stepCounter,goBackBtn, nextBtn);
 });
 
 goBackBtn.addEventListener("click", (e) => {
@@ -95,7 +95,8 @@ goBackBtn.addEventListener("click", (e) => {
   handleLocation();
   handleLocaleStorage();
   handleInputInitialValue();
-  handleAllSteps();
+  handleAllSteps(stepCounter,goBackBtn,nextBtn);
+
 });
 
 window.onpopstate = function () {
@@ -104,7 +105,7 @@ window.onpopstate = function () {
   handleActiveStep();
   handleInputInitialValue();
   handleLocaleStorage();
-  handleAllSteps();
+  handleAllSteps(stepCounter,goBackBtn,nextBtn);
 };
 
 window.route = route;

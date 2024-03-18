@@ -28,6 +28,28 @@ const handlePlanBtnInitValue = (
   }
 };
 
+const handleGoBackBtnVisibility = (stepCounter,goBackBtn)=>{
+
+  if(stepCounter == 1){
+    goBackBtn.style.opacity = '0'
+    goBackBtn.style.pointerEvents = 'none'
+  } else{
+    goBackBtn.style.opacity = '1'
+    goBackBtn.style.pointerEvents = 'all'
+
+    
+  }
+}
+
+const handleNextBtnValue = (nextBtn,stepCounter)=>{
+  if(stepCounter == 4){
+    nextBtn.innerHTML = 'Confirm'
+  } else{
+    nextBtn.innerHTML = 'Next Step'
+
+  }
+}
+
 const handleStep2 = () => {
   setTimeout(() => {
     const planBtn = document.querySelector(".payment__btn");
@@ -150,8 +172,10 @@ const handleStep3 = () => {
   }, 100);
 };
 
-const handleAllSteps = () => {
+const handleAllSteps = (stepCounter,goBackBtn,nextBtn) => {
   handleStep2();
   handleStep3();
+  handleGoBackBtnVisibility(stepCounter,goBackBtn)
+  handleNextBtnValue(nextBtn,stepCounter)
 };
-export { planInfo, handleAllSteps };
+export { planInfo, handleAllSteps, handleGoBackBtnVisibility};
